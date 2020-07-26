@@ -1,0 +1,66 @@
+﻿@model InfoTrackSEOApp.Models.SearchModel
+
+@{
+    ViewBag.Title = "App Search Page";
+}
+
+<div class="jumbotron">
+    <h2 style="text-align:center">Want to know your website's presence in leading Search Engines</h2>
+   <br />
+    <h4 style="text-align:center"> Find out now!! </h4>
+</div>
+
+<div class="row">
+    <div class="col-md-offset-5">
+
+        @using (Ajax.BeginForm("GetGoogleSearchResults", "Home", FormMethod.Post,
+                                new AjaxOptions { UpdateTargetId = "dvPartialView" }))
+
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+         
+            @Html.LabelFor(model => model.SearchText) <span style="color:red">*</span>
+            <br />
+            @Html.EditorFor(model => model.SearchText)
+            <br />
+            <br/>
+            @Html.LabelFor(model => model.SearchURL) <span style="color:red">*</span>
+            <br />
+            <span>www.</span>@Html.EditorFor(model => model.SearchURL);
+            <br/>
+            <br/>
+            @Html.LabelFor(model => model.SearchEngine)
+            <br/>
+            @Html.DropDownList("SearchEngine",
+                    (IEnumerable<SelectListItem>)ViewBag.EngineType,
+                    new { @class = "form-control" })
+            <br/>
+            
+            @Html.LabelFor(model => model.SearchInTop) 
+            <br />
+            @Html.EditorFor(model => model.SearchInTop)
+
+            <br />
+            <br />
+
+            <button style="text-align:center">Search</button>
+
+        }
+
+
+
+
+        <div id="dvPartialView">
+
+
+        </div>
+
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript">
+
+        </script>
+    </div>
+</div>
