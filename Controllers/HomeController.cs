@@ -26,7 +26,7 @@ namespace InfoTrackSEOApp.Controllers
 
         [ValidateAntiForgeryToken()]
         [HttpPost]
-        public PartialViewResult GetGoogleSearchResults(SearchModel searchModel)
+        public PartialViewResult GetSearchResults(SearchModel searchModel)
         {
 
              List<ResultsModel> res= _searchProvider.searchService(searchModel);
