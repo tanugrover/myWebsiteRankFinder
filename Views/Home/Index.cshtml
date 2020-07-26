@@ -39,9 +39,11 @@
             <br/>
             
             @Html.LabelFor(model => model.SearchInTop) 
+            <span style="color:red">*</span>
             <br />
             @Html.EditorFor(model => model.SearchInTop)
 
+            <span style="color:red"> @Html.ValidationMessageFor(model => model.SearchInTop) </span>
             <br />
             <br />
 

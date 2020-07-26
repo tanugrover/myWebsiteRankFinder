@@ -22,6 +22,7 @@ namespace InfoTrackSEOApp.Models
         public SearchEngineOptions SearchEngine { get; set; }
 
         [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Only positive number allowed")]
         [DefaultValue(100)]
         [DisplayName("Search In Top")]
         public int SearchInTop { get; set; } = 100;
